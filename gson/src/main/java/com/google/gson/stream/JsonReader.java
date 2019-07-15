@@ -264,7 +264,7 @@ public class JsonReader implements Closeable {
    */
   private String peekedString;
 
-  /*
+  /**
    * The nesting stack. Using a manual array rather than an ArrayList saves 20%.
    */
   private int[] stack = new int[32];
@@ -273,7 +273,7 @@ public class JsonReader implements Closeable {
     stack[stackSize++] = JsonScope.EMPTY_DOCUMENT;
   }
 
-  /*
+  /**
    * The path members. It corresponds directly to stack: At indices where the
    * stack contains an object (EMPTY_OBJECT, DANGLING_NAME or NONEMPTY_OBJECT),
    * pathNames contains the name at this scope. Where it contains an array
