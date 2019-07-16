@@ -15,6 +15,7 @@ package com.google.gson.custom;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,9 +27,11 @@ public class Test {
     public static void main(String[] args) {
 
         Gson gson = new GsonBuilder()
-                .registerTypeAdapterFactory(MapKeyIntTypeAdapter.FACTORY)
+                .registerTypeAdapterFactory(CollectionIntegerAdapter.MAP_ADAPTER_FACTORY)
+                .registerTypeAdapterFactory(CollectionIntegerAdapter.LIST_ADAPTER_FACTORY)
                 .create();
-        System.out.println(gson.fromJson("{\"val\":1}", Map.class));
+        System.out.println(gson.fromJson("{\"key\":12, \"key2\": f11}", Map.class));
+        System.out.println(gson.fromJson("[1,2,3]", List.class));
     }
 
 }
